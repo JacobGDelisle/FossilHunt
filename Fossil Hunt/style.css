@@ -1,0 +1,804 @@
+/* Base Styles and Typography */
+:root {
+    --primary-color: #3854A6;
+    --secondary-color: #F2B84B;
+    --text-color: #5a3d1b;
+    --light-bg: #ffffff;
+    --button-radius: 10px;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    --hover-transition: all 0.3s ease;
+  }
+  
+  html, body {
+    font-family: 'Comic Sans MS', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    touch-action: none;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+  }
+  
+  /* Start Menu Background */
+  .startMenu {
+    background-image: url('newBackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100dvh;
+  }
+  
+  /* Containers */
+  .container, .topContainer {
+    background: var(--light-bg);
+    display: inline-block;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    min-height: fit-content;
+  }
+  
+  .container {
+    max-width: 800px;
+    padding: 5%;
+  }
+  
+  .topContainer {
+    margin-top: 1dvh; 
+    max-height: 150px;
+    max-width: 950px;
+    width: 95%; 
+    padding: 1.5%;
+    box-sizing: border-box;
+  }
+  
+  #titleContainer{
+    margin-top: 5%;
+  }
+  
+  .mainCont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .puzzleCont {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Typography */
+  h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 3px #9c6b34;
+    margin-bottom: 20px;
+  }
+  
+  h1 span {
+    color: var(--secondary-color);
+  }
+  
+  .question, .numbers {
+    font-size: 23px;
+    margin: 15px 0;
+  }
+  
+  #UncleDig {
+    position: absolute; 
+    max-height: 40dvh; 
+    max-width: 40vw;
+    min-width: 30vw;
+    left: 5%;
+    bottom: 0;
+    z-index: -10;    
+  }
+
+  /* Buttons */
+  .genericBtn{
+    background: var(--secondary-color);
+    font-family: inherit;
+    color: white;
+    border: none;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    transition: var(--hover-transition);
+    box-shadow: var(--shadow);
+    font-weight: bold;
+  }
+  
+  .genericBtn {
+    font-size: 1.5rem;
+    padding: 12px 24px;
+    margin: 10px;
+  }
+  
+
+  
+  .unlocked:hover, .genericBtn:hover, .gradeBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px var(--shadow);
+  }
+  
+  /* Level States */
+  .locked {
+    background: #999;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  .finished {
+    background-color: #4CAF50;
+    cursor: default;
+  }
+  
+  
+  /* Level Selection */
+  .levelSelect {
+    align-items: flex-start;
+  }
+  
+/* Button Standardization and Grid Layout */
+.button-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    margin: 15px auto;
+    margin-bottom: 10px;
+  }
+  
+  /* Make all buttons in grids square and consistent */
+  .gradeBtn, .levelBtn, #questionHolder button {
+    width: 100%;
+    aspect-ratio: 1/1; /* Makes buttons square */
+    text-wrap: pretty;
+    height: auto;
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Update grades container to use grid */
+  .grades {
+    padding-top: 0;
+    margin: 10px;
+    display: block;
+    width: 100%;
+  }
+  
+  /* Update levels container to use grid */
+  .levels {
+    margin: 10px;
+    display: block;
+    width: 100%;
+  }
+  
+  /* Fix the levelHolder layout */
+  .levelHolder {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  #questionHolder{
+    margin-bottom: 10%;
+    min-width: 30dvw;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    
+}
+
+.button-row button {
+    flex: 1;
+    width:100%;
+    aspect-ratio: 1/1;
+    min-width: 0;
+}
+
+  
+  /* Wire Game */
+  .wireButton, .wireButtonEnd {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    z-index: 7;
+    border: 3px solid white;
+    box-shadow: var(--shadow);
+    transition: var(--hover-transition);
+  }
+  
+  .wireButton:hover, .wireButtonEnd:hover {
+    transform: scale(1.1);
+  }
+  
+  #startHolder, #endHolder {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  #startHolder {
+    align-items: flex-end;
+  }
+  
+  #endHolder {
+    align-items: flex-start;
+  }
+  
+  .wireHolder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    margin: 20px 0;
+    margin-bottom: 5dvh;
+  }
+  
+  #myCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    z-index: 5;
+  }
+  
+  /* Wire Colors */
+  #red { background-color: red; }
+  #blue { background-color: blue; }
+  #pink { background-color: pink; }
+  #yellow { background-color: yellow; }
+  #green { background-color: green; }
+  #orange { background-color: orange; }
+  
+  /* Money Game */
+  .coin {
+    max-width: 10%;
+    max-height: 10%;
+    aspect-ratio: 1;
+  }
+  
+  #gameContainer{
+    max-height:80dvh;
+    margin-bottom: 20dvh;
+
+  }
+  
+  .coinCount {
+    max-width: 40px;
+    aspect-ratio: 1;
+  }
+  
+  .draggable {
+    position: absolute;
+    cursor: grab;
+    z-index: 10;
+  }
+  
+  .draggable:active {
+    cursor: grabbing;
+  }
+  
+  .bill {
+    max-width: 20%;
+    max-height: 40%;
+    aspect-ratio: auto;
+  }
+  
+  .moneyHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  #payed {
+    width: 50%;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  #change {
+    width: 100%;
+    height: 200px;
+    border: 3px dashed #000;
+    border-radius: 15px;
+    display: flex;
+    gap: 5%;
+    margin: 0 5% 5% 5%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    flex-wrap:wrap;
+  }
+
+  #checkChange{
+    margin-bottom: 20dvh;
+  }
+  
+  #trash {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    position: absolute;
+    transition: var(--hover-transition);
+  }
+  
+  #trash:hover {
+    transform: scale(1.1);
+  }
+  
+  #bank {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+
+  /* Money placement */
+  .bills img:nth-child(1) { left: 5%; top: 90%; }
+  .bills img:nth-child(2) { left: 15%; top: 90%; }
+  .bills img:nth-child(3) { left: 25%; top: 90%; }
+  .bills img:nth-child(4) { left: 35%; top: 90%; }
+  
+  .coins img:nth-child(1) { left: 50%; top: 90%; }
+  .coins img:nth-child(2) { left: 60%; top: 90%; }
+  .coins img:nth-child(3) { left: 70%; top: 90%; }
+  .coins img:nth-child(4) { left: 80%; top: 90%; }
+  .coins img:nth-child(5) { left: 90%; top: 90%; }
+  
+  /* Fossil Game */
+  #fossilDisplay {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+  }
+  
+  .fossilSpot {
+    border: 3px dashed #aaa;
+    margin: 20px 0;
+    position: absolute;
+    border-radius: 10px;
+    top: 15%;
+    right:20%;
+  }
+  
+  
+  #trexHead {
+    top: -80px;
+    left: -120px;
+    width: 100px;
+    height: 100px;
+  }
+  
+  #trexBody {
+    top: 0px;
+    left: -50px;
+    width: 250px;
+    height: 100px;
+  }
+  
+  #trexLegs {
+    top: 100px;
+    left: -50px;
+    width: 250px;
+    height: 150px;
+    z-index: 4;
+  }
+
+  #brontHead {
+    top: -80px;
+    left: -150px;
+    width: 100px;
+    height: 100px;
+    z-index: 5;
+  }
+  
+  #brontBody {
+    top: -50px;
+    left: -50px;
+    width: 250px;
+    height: 150px;
+    z-index: 3;
+  }
+  
+  #brontLegs {
+    top: 130px;
+    left: -30px;
+    width: 250px;
+    height: 150px;
+  }
+
+  #triHead {
+    top: -20px;
+    left: -150px;
+    width: 150px;
+    height: 150px;
+    z-index: 5;
+  }
+  
+  #triBody {
+    top: 30px;
+    left: -50px;
+    width: 230px;
+    height: 120px;
+    z-index: 3;
+  }
+  
+  #triLegs {
+    top: 70px;
+    left: -110px;
+    width: 250px;
+    height: 150px;
+    z-index: 4;
+  }
+
+  
+  #pterHead {
+    top: 0;
+    left: -100px;
+    width: 150px;
+    height: 75px;
+    z-index: 5;
+  }
+  
+  #pterBody {
+    top: 30px;
+    left: -50px;
+    width: 230px;
+    height: 240px;
+    z-index: 3;
+  }
+  
+  #pterLegs {
+    top: 100px;
+    left: -110px;
+    width: 250px;
+    height: 150px;
+    z-index: 4;
+  }
+  
+  .brontl{
+    width: 200px;
+  }
+
+  .bronth{
+    width: 150px;
+    
+  }
+
+  .trih{
+    width:145px;
+    z-index: 11;
+  }
+
+  .trib{
+    width:200px;
+    z-index: 10;
+  }
+
+  .tril{
+    width:170px;
+  }
+
+  .pterh{
+    width:145px;
+    z-index: 11;
+  }
+
+  .pterb{
+    width:200px;
+    z-index: 10;
+  }
+
+  .pterl{
+    width:170px;
+  }
+  
+  #fossilHolder {
+
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+    display: flex;
+
+  }
+  
+  #fossilHolder img {
+
+    position: absolute;
+
+    z-index: 11;
+    bottom: 20px;
+  }
+  
+  #fossilHolder img:hover {
+    transform: scale(1.1);
+  }
+  
+  #fossilHolder img:nth-child(1) { left: 20%; top: 30%;}
+  #fossilHolder img:nth-child(2) { left: 20%; top: 60%;}
+  #fossilHolder img:nth-child(3) { left: 50%; }
+  
+  
+  .placed {
+    min-height: 30%;
+    aspect-ratio: auto;
+  }
+  
+  /* UI Elements */
+  #incorrectWarning {
+    text-align: center;
+    color: #FF3B30;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
+ 
+  input[type="number"] {
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    margin: 10px 0;
+    width: 200px;
+    text-align: center;
+  }
+  
+  button {
+    background: var(--secondary-color);
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    transition: var(--hover-transition);
+    margin: 10px;
+    font-family: inherit;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow);
+  }
+  
+  .problemHolder {
+    background-color: var(--light-bg);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 60%;
+    max-height: 70%;
+    box-shadow: var(--shadow);
+  }
+  
+  /* Finish Screen */
+  #code {
+    font-size: 2rem;
+    font-weight: bold;
+    background: var(--light-bg);
+    padding: 15px 30px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: var(--shadow);
+    margin: 20px;
+    border: 2px dashed var(--secondary-color);
+  }
+  
+  #popUp {
+    background-color: white;
+    max-width: 70%;
+    min-width: 50%;
+    aspect-ratio: 2/1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px var(--shadow);
+    z-index: 20;
+    transform-origin: bottom left;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    padding: 15px;
+
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+}
+
+#popUpText{
+  font-size: 20px;
+}
+
+#popUpHeader{
+  font-size: 45px;
+}
+
+#popUp .h3{
+  font-size: large;
+}
+
+#popUp::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 20px;
+  border-width: 15px 15px 0;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  filter: drop-shadow(0 5px 2px var(--shadow));
+}
+
+.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1); 
+}
+
+.close {
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-100%, 100%) scale(0.5); 
+}
+
+#uncle{
+  position:absolute;
+  max-width: 30%;
+  bottom: 0;
+  left: 0;
+  aspect-ratio: fixed;
+  z-index: 20;
+}
+
+.appear{
+  visibility: visible;
+}
+
+.disappear{
+  visibility: hidden;
+}
+
+#overlay{
+  position:absolute;
+  background-color: gray;
+  opacity: 0.5;
+  min-width: 120%;
+  min-height: 200%;
+  left: 0;
+  bottom: 0;
+  z-index: 19;
+}
+
+.fullscreen{
+  margin: 5px;
+  margin-top: 7px;
+  max-width: 6dvw;
+  max-height: 4dvh;
+}
+
+#fossilTitle {
+  position: absolute;
+  top: 5dvh;
+  left: 50%;
+  transform: translateX(-50%); /* Centers the element horizontally */
+  text-align: center;
+}
+
+#logo{
+  max-width:45dvh;
+  aspect-ratio: auto;
+}
+
+.borderBox{
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  min-height: fit-content;
+  max-height: 20dvh
+}
+
+#box1{
+  position:absolute;
+  bottom: 3dvh;
+  left:3dvh;
+  padding: 1%;
+}
+
+#box2{
+  position:absolute;
+  border-radius: 15px;
+  top: 3dvh;
+  right:3dvh;
+}
+
+
+
+#fossilPic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 300px;
+  max-height: 300px;
+}
+
+#leftLevel, #rightLevel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: auto;
+  cursor: pointer;
+}
+
+#leftLevel {
+  left: 20px;
+}
+
+#rightLevel {
+  right: 20px;
+}
+
+#startBtn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  font-size: 18px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#levelTitle{
+  position: absolute;
+  top: 5%;
+}
+
