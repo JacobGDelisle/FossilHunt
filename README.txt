@@ -8,6 +8,8 @@ The project was created via Visual Studio and published via Netlify.
 
 This was an internship project that spanned over the course of one college semester, and was made in close collaboration with a local library for a reading program.
 
+This project was designed, developed, and published by me.
+
 The purpose of the game is to find and assemble fossil pieces in order to fill up a museum. 
 
 
