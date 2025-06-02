@@ -36,9 +36,12 @@ K-1st: Counting Pennies
 7th-8th: Determining the payment needed for buying X amount of a random item that costs Y each, with tax and a possible discount.
 
 
-The fossil construction puzzle utilizes drag and drop with outlined zones on the screen.
+Upon completion of the game, the user is given a code to use for summer reading program.
+
+The user interaction was designed with tablets in mind, with all drag and drop functions working on both computers and touchscreen devices.
 
 
 Ending Notes
 -
 The project was hosted via a free Netlify in order to keep the project completely free, and was placed into the library's website via an iframe.
+View and use the published project: https://meek-lollipop-c57686.netlify.app/
