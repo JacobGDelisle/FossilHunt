@@ -39,4 +39,4 @@ The fossil construction puzzle utilizes drag and drop with outlined zones on the
 
 Ending Notes
 -
-The project was hosted via a free Netlify in order to keep the completely free, and was placed into the library's website via an iframe.
+The project was hosted via a free Netlify in order to keep the project completely free, and was placed into the library's website via an iframe.
